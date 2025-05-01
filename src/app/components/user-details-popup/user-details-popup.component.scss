@@ -1,0 +1,152 @@
+.user-details-popup {
+  position: relative;
+  display: inline-block;
+
+  .user-icon {
+    color: #333;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #1976d2;
+    }
+  }
+
+  .popup-content {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 280px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    margin-top: 8px;
+    z-index: 9999;
+    overflow: hidden;
+    animation: slideDown 0.2s ease-out;
+    border: 3px solid #1976d2;
+    
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+    
+    &.visible {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .user-info, .guest-header {
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid #eee;
+      background-color: #f5f5f5;
+
+      .user-avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: #1976d2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        mat-icon {
+          font-size: 32px;
+          width: 32px;
+          height: 32px;
+          color: white;
+        }
+      }
+
+      .user-details {
+        h3 {
+          margin: 0;
+          font-size: 16px;
+          font-weight: 500;
+          color: #333;
+        }
+
+        p {
+          margin: 4px 0 0;
+          font-size: 14px;
+          color: #666;
+        }
+      }
+    }
+    
+    .guest-header {
+      h3 {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 500;
+        color: #333;
+      }
+    }
+    
+    .edit-form {
+      padding: 16px;
+      
+      h3 {
+        margin: 0 0 16px;
+        font-size: 16px;
+        font-weight: 500;
+        color: #333;
+        text-align: center;
+      }
+      
+      mat-form-field {
+        width: 100%;
+        margin-bottom: 8px;
+      }
+      
+      .form-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        margin-top: 16px;
+      }
+    }
+
+    .popup-actions {
+      padding: 8px 0;
+
+      button {
+        width: 100%;
+        text-align: left;
+        padding: 12px 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border: none;
+        background: none;
+        color: #333;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+
+        mat-icon {
+          color: #666;
+        }
+
+        &:hover {
+          background-color: #f5f5f5;
+        }
+      }
+    }
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

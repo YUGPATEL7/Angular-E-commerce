@@ -1,0 +1,38 @@
+<div class="app-container">
+  <header class="header">
+    <div class="container">
+      <a href="/" class="logo">ShopEasy</a>
+      <nav class="main-nav">
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        <a routerLink="/products" routerLinkActive="active">Products</a>
+        <a routerLink="/categories" routerLinkActive="active">Categories</a>
+        <a routerLink="/about" routerLinkActive="active">About</a>
+      </nav>
+      <div class="search-cart">
+        <div class="search-box">
+          <input type="text" placeholder="Search products...">
+          <button type="button" class="search-btn">
+            <mat-icon>search</mat-icon>
+          </button>
+        </div>
+        <div class="cart-account">
+          <div class="cart-icon">
+            <a routerLink="/cart">
+              <mat-icon>shopping_cart</mat-icon>
+              <span class="cart-count" *ngIf="cartItemCount > 0">{{cartItemCount}}</span>
+            </a>
+          </div>
+          <app-user-details-popup #userPopup></app-user-details-popup>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 ShopEasy. All rights reserved.</p>
+    </div>
+  </footer>
+</div>

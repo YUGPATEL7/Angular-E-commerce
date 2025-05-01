@@ -1,0 +1,73 @@
+<div class="product-list-container">
+  <div class="filters-bar">
+    <div class="search-box">
+      <input 
+        type="text" 
+        [(ngModel)]="searchTerm" 
+        (ngModelChange)="filterProducts()"
+        placeholder="Search products..."
+      >
+      <mat-icon>search</mat-icon>
+    </div>
+    <div class="category-filter">
+      <select [(ngModel)]="selectedCategory" (change)="filterProducts()">
+        <option value="all">All Categories</option>
+        <option *ngFor="let category of categories" [value]="category">
+          {{category}}
+        </option>
+      </select>
+      <mat-icon>filter_list</mat-icon>
+    </div>
+  </div>
+
+  <div class="hero-section">
+    <h1>Welcome to Our Store</h1>
+    <p>Discover amazing products at great prices</p>
+  </div>
+
+  <h2 class="section-title">Featured Products</h2>
+
+  <div class="products-grid">
+    <div *ngFor="let product of filteredProducts" class="product-card">
+      <div class="product-image">
+        <img [src]="product.imageUrl" [alt]="product.name">
+      </div>
+      <div class="product-info">
+        <div class="product-title">{{ product.name }}</div>
+        <div class="product-description">{{ product.description }}</div>
+        <div class="rating-price-row">
+          <div class="rating">
+            <mat-icon *ngFor="let star of [1,2,3,4,5]" [class.filled]="star <= product.rating">
+              {{ star <= product.rating ? 'star' : 'star_border' }}
+            </mat-icon>
+            <span class="rating-value">{{ product.rating }}</span>
+          </div>
+          <div class="price">₹{{ product.price.toLocaleString('en-IN') }}</div>
+        </div>
+        <div class="product-actions">
+          <button mat-raised-button color="primary" class="details-btn" [routerLink]="['/products', product.id]">
+            View Details
+          </button>
+          <button mat-raised-button color="accent" class="add-to-cart-btn" (click)="addToCart(product)" [disabled]="!product.inStock">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="no-products" *ngIf="!loading && !error && filteredProducts.length === 0">
+    <mat-icon>search_off</mat-icon>
+    <p>No products found matching your criteria.</p>
+  </div>
+
+  <div class="loading-container" *ngIf="loading">
+    <mat-spinner diameter="40"></mat-spinner>
+    <p>Loading products...</p>
+  </div>
+
+  <div class="error-container" *ngIf="error">
+    <mat-icon color="warn">error</mat-icon>
+    <p>Error loading products. Please try again later.</p>
+  </div>
+</div>

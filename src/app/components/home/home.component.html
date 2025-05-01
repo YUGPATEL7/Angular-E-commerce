@@ -1,0 +1,45 @@
+<div class="home-container">
+  <div class="hero-section">
+    <div class="hero-content">
+      <h1>Welcome to Our Store</h1>
+      <p>Discover amazing products at great prices</p>
+      <button class="shop-now-btn" routerLink="/products">
+        Shop Now
+      </button>
+    </div>
+  </div>
+
+  <div class="featured-section">
+    <h2>Featured Products</h2>
+    <div class="products-grid">
+      <div *ngFor="let product of featuredProducts" class="product-card">
+        <div class="product-image">
+          <a [routerLink]="['/products', product.id]">
+            <img [src]="product.imageUrl" [alt]="product.name">
+          </a>
+        </div>
+        <div class="product-info">
+          <a [routerLink]="['/products', product.id]" class="product-title">{{ product.name }}</a>
+          <div class="product-description">{{ product.description }}</div>
+          <div class="rating-price-row">
+            <div class="rating">
+              <ng-container *ngFor="let star of [1,2,3,4,5]">
+                <span class="material-icons" [ngClass]="{'filled': star <= product.rating}">
+                  {{ star <= product.rating ? 'star' : 'star_border' }}
+                </span>
+              </ng-container>
+              <span class="rating-value">{{ product.rating }}</span>
+            </div>
+            <div class="price">₹{{ product.price.toLocaleString('en-IN') }}</div>
+          </div>
+          <div class="product-actions single-action">
+            <!-- <button class="details-btn" [routerLink]="['/products', product.id]">
+              <span class="material-icons">info</span>
+              Details
+            </button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

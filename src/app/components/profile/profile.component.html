@@ -1,0 +1,55 @@
+<div class="profile-container">
+  <mat-card class="profile-card">
+    <mat-card-header>
+      <div mat-card-avatar class="profile-avatar">
+        <div class="avatar-circle">
+          {{ user?.name?.charAt(0) || 'U' }}
+        </div>
+      </div>
+      <mat-card-title>My Profile</mat-card-title>
+      <mat-card-subtitle *ngIf="user">{{ user.email }}</mat-card-subtitle>
+    </mat-card-header>
+    
+    <mat-card-content class="profile-content">
+      <div *ngIf="!isEditing" class="profile-details">
+        <div class="detail-item">
+          <span class="label">Name:</span>
+          <span class="value">{{ user?.name }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="label">Email:</span>
+          <span class="value">{{ user?.email }}</span>
+        </div>
+      </div>
+      
+      <div *ngIf="isEditing" class="profile-form">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Name</mat-label>
+          <input matInput [(ngModel)]="editableUser.name" placeholder="Your name">
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Email</mat-label>
+          <input matInput [(ngModel)]="editableUser.email" placeholder="Your email" type="email">
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    
+    <mat-card-actions class="profile-actions">
+      <ng-container *ngIf="!isEditing">
+        <button mat-raised-button color="primary" (click)="startEdit()">
+          Edit Profile
+        </button>
+      </ng-container>
+      
+      <ng-container *ngIf="isEditing">
+        <button mat-button (click)="cancelEdit()">
+          Cancel
+        </button>
+        <button mat-raised-button color="primary" (click)="saveProfile()">
+          Save
+        </button>
+      </ng-container>
+    </mat-card-actions>
+  </mat-card>
+</div> 

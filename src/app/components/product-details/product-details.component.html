@@ -1,0 +1,63 @@
+<div class="product-details-container">
+  <div class="loading-container" *ngIf="loading">
+    <mat-spinner diameter="40"></mat-spinner>
+    <p>Loading product details...</p>
+  </div>
+
+  <div class="error-container" *ngIf="error">
+    <mat-icon color="warn">error</mat-icon>
+    <p>Error loading product details. Please try again later.</p>
+    <button mat-raised-button color="primary" routerLink="/products">
+      Back to Products
+    </button>
+  </div>
+
+  <div class="product-content" *ngIf="product && !loading && !error">
+    <div class="product-image-section">
+      <img [src]="product.imageUrl" [alt]="product.name" class="product-image">
+    </div>
+
+    <div class="product-info-section">
+      <h1>{{ product.name }}</h1>
+      
+      <div class="product-rating">
+        <div class="stars">
+          <mat-icon *ngFor="let star of getStarsArray()" [class.filled]="star <= product.rating">
+            {{ star <= product.rating ? 'star' : 'star_border' }}
+          </mat-icon>
+        </div>
+        <span class="rating-value">{{ product.rating }} (0 reviews)</span>
+      </div>
+
+      <div class="product-price">
+        ₹{{ product.price.toLocaleString('en-IN') }}
+      </div>
+
+      <div class="product-description">
+        <h3>Description</h3>
+        <p>{{ product.description }}</p>
+      </div>
+
+      <div class="product-availability">
+        <span class="availability-status" [class.out-of-stock]="!product.inStock">
+          {{ product.inStock ? 'In Stock' : 'Out of Stock' }}
+        </span>
+      </div>
+
+      <div class="product-actions">
+        <button mat-raised-button color="primary" 
+                [disabled]="!product.inStock" 
+                (click)="addToCart()"
+                class="buy-now">
+          Buy Now
+        </button>
+        <button mat-raised-button color="accent" 
+                [disabled]="!product.inStock" 
+                (click)="addToCart()"
+                class="add-to-cart">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+</div> 

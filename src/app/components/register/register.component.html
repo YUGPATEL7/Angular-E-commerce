@@ -1,0 +1,53 @@
+<div class="register-container">
+  <mat-card class="register-card">
+    <mat-card-header>
+      <mat-card-title>Create an Account</mat-card-title>
+      <mat-card-subtitle>Fill in the form to register</mat-card-subtitle>
+    </mat-card-header>
+    
+    <mat-card-content>
+      <form (ngSubmit)="register()" #registerForm="ngForm">
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Name</mat-label>
+          <input matInput [(ngModel)]="user.name" name="name" required placeholder="Your full name">
+          <mat-error *ngIf="errors['name']">{{ errors['name'] }}</mat-error>
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" [(ngModel)]="user.email" name="email" required placeholder="Your email">
+          <mat-error *ngIf="errors['email']">{{ errors['email'] }}</mat-error>
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" [(ngModel)]="user.password" name="password" required placeholder="Create a password">
+          <mat-error *ngIf="errors['password']">{{ errors['password'] }}</mat-error>
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline" class="form-field">
+          <mat-label>Confirm Password</mat-label>
+          <input matInput type="password" [(ngModel)]="user.confirmPassword" name="confirmPassword" required placeholder="Confirm your password">
+          <mat-error *ngIf="errors['confirmPassword']">{{ errors['confirmPassword'] }}</mat-error>
+        </mat-form-field>
+        
+        <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
+        
+        <div class="form-actions">
+          <button mat-raised-button color="primary" type="submit" [disabled]="loading">
+            {{ loading ? 'Registering...' : 'Register' }}
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+    
+    <mat-card-actions class="card-actions">
+      <div class="login-link">
+        <span>Already have an account?</span>
+        <a routerLink="/login">Login</a>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div> 

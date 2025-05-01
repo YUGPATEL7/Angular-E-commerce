@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "name": "Premium Wireless Headphones",
+    "description": "High-quality wireless headphones with noise cancellation and premium sound quality. Perfect for music lovers and professionals.",
+    "price": 14999.99,
+    "imageUrl": "https://plus.unsplash.com/premium_photo-1678066730788-fdc6d64b4679?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category": "Electronics",
+    "stock": 50,
+    "rating": 4.5,
+    "reviews": [],
+    "inStock": true
+  },
+  {
+    "id": "2",
+    "name": "Smart Watch Series 5",
+    "description": "Latest smartwatch with health monitoring features, GPS tracking, and long battery life. Stay connected and healthy on the go.",
+    "price": 22499.99,
+    "imageUrl": "https://images.unsplash.com/photo-1623319496365-1d045be389e2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category": "Electronics",
+    "stock": 30,
+    "rating": 4.8,
+    "reviews": [],
+    "inStock": true
+  },
+  {
+    "id": "3",
+    "name": "Designer Backpack",
+    "description": "Stylish and durable backpack for everyday use. Multiple compartments, water-resistant material, and comfortable straps.",
+    "price": 5999.99,
+    "imageUrl": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category": "Accessories",
+    "stock": 100,
+    "rating": 4.2,
+    "reviews": [],
+    "inStock": true
+  },
+  {
+    "id": "4",
+    "name": "Professional Camera",
+    "description": "High-resolution camera for professional photography. 4K video recording, advanced autofocus, and interchangeable lenses.",
+    "price": 67499.99,
+    "imageUrl": "https://th.bing.com/th/id/OIP.MmTj-RDGXBKQZq5uzg0IlgHaD4?w=1200&h=628&rs=1&pid=ImgDetMain",
+    "category": "Electronics",
+    "stock": 15,
+    "rating": 4.7,
+    "reviews": [],
+    "inStock": true
+  },
+  {
+    "id": "5",
+    "name": "Wireless Earbuds",
+    "description": "True wireless earbuds with active noise cancellation and premium sound quality. Perfect for workouts and daily use.",
+    "price": 11249.99,
+    "imageUrl": "https://th.bing.com/th/id/OIP.IwM__-FeoV1Hl6s-wX7odAHaEK?w=2240&h=1260&rs=1&pid=ImgDetMain",
+    "category": "Electronics",
+    "stock": 75,
+    "rating": 4.6,
+    "reviews": [],
+    "inStock": true
+  },
+  {
+    "id": "6",
+    "name": "Leather Wallet",
+    "description": "Genuine leather wallet with multiple card slots and RFID protection. Classic design that never goes out of style.",
+    "price": 3749.99,
+    "imageUrl": "https://images.unsplash.com/photo-1627123424574-724758594e93?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "category": "Accessories",
+    "stock": 200,
+    "rating": 4.3,
+    "reviews": [],
+    "inStock": true
+  }
+] 

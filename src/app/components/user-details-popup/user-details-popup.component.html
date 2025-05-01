@@ -1,0 +1,81 @@
+<div class="user-details-popup">
+  <button mat-icon-button (click)="togglePopup($event)" class="user-icon">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+
+  <div class="popup-content" [class.visible]="isOpen">
+    <!-- When Logged In -->
+    <div *ngIf="user">
+      <!-- User Info (Display Mode) -->
+      <div class="user-info" *ngIf="!isEditing">
+        <div class="user-avatar">
+          <mat-icon>account_circle</mat-icon>
+        </div>
+        <div class="user-details">
+          <h3>{{ user?.name || 'User' }}</h3>
+          <p>{{ user?.email }}</p>
+        </div>
+      </div>
+
+      <!-- Edit Profile Form -->
+      <div class="edit-form" *ngIf="isEditing">
+        <h3>Edit Profile</h3>
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput [(ngModel)]="editableUser.name" placeholder="Your name">
+        </mat-form-field>
+        
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput [(ngModel)]="editableUser.email" placeholder="Your email" type="email">
+        </mat-form-field>
+        
+        <div class="form-actions">
+          <button mat-button (click)="cancelEdit($event)">Cancel</button>
+          <button mat-raised-button color="primary" (click)="saveProfile($event)">Save</button>
+        </div>
+      </div>
+
+      <mat-divider></mat-divider>
+
+      <!-- Action Buttons -->
+      <div class="popup-actions" *ngIf="!isEditing">
+        <button mat-button routerLink="/profile" (click)="closePopup()">
+          <mat-icon>person</mat-icon>
+          View Profile
+        </button>
+        <button mat-button (click)="startEdit($event)">
+          <mat-icon>edit</mat-icon>
+          Edit Profile
+        </button>
+        <button mat-button (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          Logout
+        </button>
+      </div>
+    </div>
+
+    <!-- When Not Logged In -->
+    <div *ngIf="!user" class="login-register">
+      <div class="guest-header">
+        <div class="user-avatar">
+          <mat-icon>account_circle</mat-icon>
+        </div>
+        <h3>Welcome, Guest</h3>
+      </div>
+      
+      <mat-divider></mat-divider>
+      
+      <div class="popup-actions">
+        <button mat-button (click)="login()">
+          <mat-icon>login</mat-icon>
+          Login
+        </button>
+        <button mat-button (click)="register()">
+          <mat-icon>person_add</mat-icon>
+          Register
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
