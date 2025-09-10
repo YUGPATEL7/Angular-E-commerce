@@ -12,7 +12,7 @@ This is a responsive and dynamic e-commerce website built using Angular. The app
 - 🌐 API Integration for fetching and manipulating data
 - 🛠️ Full CRUD functionality (Create, Read, Update, Delete)
 - 📱 Responsive UI with SCSS styling
-
+  
 ## 🛠️ Tech Stack
 
 - **Angular**
